@@ -5,10 +5,9 @@ var Listing = require('../models/listing');
 
 
 router.get('/', function(req, res, next) {
-  res.status(200).json([
-    {title: 'Joe',
-    price: 10}
-  ])
+  Listing.find({}, function(err, listings) {
+    res.status(200).json(listings)
+  });
 });
 
 router.post('/', function(req, res) {
