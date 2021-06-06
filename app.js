@@ -4,6 +4,9 @@ var cors = require('cors');
 
 var listingsRouter = require('./routes/listings');
 
+require('dotenv').config();
+require('./config/database');
+
 var app = express();
 
 app.use(logger('dev'));
