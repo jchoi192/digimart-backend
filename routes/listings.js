@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
   Listing.create(req.body, function(err, listing) {
-    response.status(201).json(listing);
+    res.status(201).json(listing);
   });
 });
 
