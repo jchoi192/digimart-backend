@@ -9,7 +9,7 @@ module.exports = {
 
 function index(req, res) {
     Listing.find({}, function (err, listings) {
-        res.status(200).json(listings)
+        res.status(200).json(listings);
     });
 }
 
@@ -21,10 +21,12 @@ function create(req, res) {
 
 function update(req, res) {
     Listing.findByIdAndUpdate(req.params.id, req.body, function () {
-        index(req, res)
-    })
+        index(req, res);
+    });
 }
 
 function deleteListing(req, res) {
-    Listing.findByIdAndDelete()
+    Listing.findByIdAndDelete(req.params.id, function() {
+        index(req, res);
+    });
 }
